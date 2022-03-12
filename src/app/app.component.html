@@ -36,7 +36,7 @@
     <p>{{precioBTC | currency}}</p>
   
     <!-- Tabs -->
-    <ul class="nav nav-tabs mt-5" id="myTab" role="tablist">
+    <ul class="nav nav-tabs nav-fill mt-5" id="myTab" role="tablist">
       <li class="nav-item" role="presentation">
         <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#inicial" type="button" role="tab">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-currency-exchange" viewBox="0 0 16 16">
@@ -65,75 +65,80 @@
     </ul>
   
     <!-- tabs content -->
-    <div class="tab-content" id="myTabContent">
-      <div class="tab-pane fade show active" id="inicial" role="tabpanel">
-        <div class="card border-dark text-center mt-3 h-100 w-50 ml-20">
-          <img src="../assets/images/cash1.svg" class="card-img-top w-25" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Compra inicial</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Capital inicial</h6>
-            <p class="card-text">{{capInicial | currency:'COP'}}</p>
-            <h6 class="card-subtitle mb-2 text-muted">Dolares comprados</h6>
-            <p class="card-text">{{usdComprados | currency}}</p>
-            <h6 class="card-subtitle mb-2 text-muted">Pecio por dolar</h6>
-            <p class="card-text">{{precioPorDolar | currency:'COP'}}</p>
+    <div class="justify-content-center w-100">
+      
+      <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="inicial" role="tabpanel">
+          <div class="border border-dark rounded w-50 ml-25">
+            <img src="../assets/images/cash1.svg" class="card-img-top w-25 mx-auto d-block" alt="...">
+            <h5 class="text-center">Compra inicial</h5>
+            <h6 class="mb-2 text-muted text-center">Capital inicial</h6>
+            <p class=" text-center">{{capInicial | currency:'COP'}}</p>
+            <h6 class="mb-2 text-muted text-center">Dolares comprados</h6>
+            <p class=" text-center">{{usdComprados | currency}}</p>
+            <h6 class="mb-2 text-muted text-center">Pecio por dolar</h6>
+            <p class=" text-center">{{precioPorDolar | currency:'COP'}}</p>
           </div>
         </div>
-      </div>
-      <div class="tab-pane fade" id="inversiones" role="tabpanel">
-        <div class="row mt-3 justify-content-center">
-          <div class="col-lg-6 col-md-6 col-sm-3 col-xs-3 justify-content-center">
-            <div class="form-check">
-              <input class="form-check-input" type="radio" value=1 [(ngModel)]="inversionSelected">
-              <label class="form-check-label" for="gridRadios1">
-                BTC
-              </label>
+        <div class="tab-pane fade" id="inversiones" role="tabpanel">
+          <div class="border border-dark rounded w-50 ml-25">
+            <div class="checks justify-content-center">
+              <div class="form-check">
+                <input class="form-check-input" type="radio" value=1 [(ngModel)]="inversionSelected">
+                <label class="form-check-label" for="gridRadios1">
+                  BTC
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" value=2 [(ngModel)]="inversionSelected">
+                <label class="form-check-label" for="gridRadios1">
+                  Anchor protocol
+                </label>
+              </div>
             </div>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" value=2 [(ngModel)]="inversionSelected">
-              <label class="form-check-label" for="gridRadios1">
-                Anchor protocol
-              </label>
+            <div  *ngIf="inversionSelected == 1">
+              <img src="../assets/images/Bitcoin.svg" class="card-img-top w-25 mx-auto d-block" alt="...">
+              <h5 class="text-center">BTC</h5>
+              <h6 class="text-center mb-2 text-muted">Inversion</h6>
+              <p class="text-center">{{inversionBTC | currency}}</p>
+              <h6 class="text-center mb-2 text-muted">Precio de compra</h6>
+              <p class="text-center">{{precioCompraBtc | currency}}</p>
+              <h6 class="text-center mb-2 text-muted">Cantidad</h6>
+              <p class="text-center">{{cantidadBTC | currency:'BTC':'symbol':'1.8-8'}}</p>
+            </div>
+
+            <div  *ngIf="inversionSelected == 2">
+              <img src="../assets/images/anchor.png" class="card-img-top w-25 mx-auto d-block" alt="...">
+              <h5 class="text-center">Anchor protocol</h5>
+              <h6 class="text-center mb-2 text-muted">Inversion (USD)</h6>
+              <p class="text-center">{{inversionAnchor | currency}}</p>
+              <h6 class="text-center mb-2 text-muted">UST comprados</h6>
+              <p class="text-center">{{UstComprados | currency}}</p>
             </div>
           </div>
         </div>
-        <div class="justify-content-center mt-2">
-          <div class="card border-dark text-center h-100 w-100" *ngIf="inversionSelected == 1">
-            <img src="../assets/images/Bitcoin.svg" class="card-img-top w-100 h-100" alt="...">
+        <div class="tab-pane fade" id="realTime" role="tabpanel">
+          <div class="border border-dark rounded w-50 ml-25">
+            <img src="../assets/images/tether-usdt-logo.svg" class="card-img-top mt-1 w-25 mx-auto d-block" alt="...">
+            <h5 class="text-center">Valores actuales</h5>
+            <h6 class="text-center mb-2 text-muted">BTC</h6>
+            <p class="text-center">{{valorActualInversionBtc | currency}}</p>
+            <h6 class="text-center mb-2 text-muted">Total actual</h6>
+            <p class="text-center">{{totalActual | currency}}</p>
+          </div>
+          <!-- <div class="card border-dark text-center mt-3 h-100 w-75 ml-9">
+            <img src="../assets/images/tether-usdt-logo.svg" class="card-img-top w-50" alt="...">
             <div class="card-body">
-              <h5 class="card-title">BTC</h5>
-              <h6 class="card-subtitle mb-2 text-muted">Inversion</h6>
-              <p class="card-text">{{inversionBTC | currency}}</p>
-              <h6 class="card-subtitle mb-2 text-muted">Precio de compra</h6>
-              <p class="card-text">{{precioCompraBtc | currency}}</p>
-              <h6 class="card-subtitle mb-2 text-muted">Cantidad</h6>
-              <p class="card-text">{{cantidadBTC | currency:'BTC':'symbol':'1.8-8'}}</p>
+              <h5 class="card-title">Valores actuales</h5>
+              <h6 class="card-subtitle mb-2 text-muted">BTC</h6>
+              <p class="card-text">{{valorActualInversionBtc | currency}}</p>
+              <h6 class="card-subtitle mb-2 text-muted">Total actual</h6>
+              <p class="card-text">{{totalActual | currency}}</p>
             </div>
-          </div>
-          <div class="card border-dark text-center h-100 w-50 ml-20" *ngIf="inversionSelected == 2">
-            <img src="../assets/images/anchor.png" class="card-img-top w-50" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Anchor protocol</h5>
-              <h6 class="card-subtitle mb-2 text-muted">Inversion (USD)</h6>
-              <p class="card-text">{{inversionAnchor | currency}}</p>
-              <h6 class="card-subtitle mb-2 text-muted">UST comprados</h6>
-              <p class="card-text">{{UstComprados | currency}}</p>
-            </div>
-          </div>
+          </div> -->
         </div>
       </div>
-      <div class="tab-pane fade" id="realTime" role="tabpanel">
-        <div class="card border-dark text-center mt-3 h-100 w-75 ml-9">
-          <img src="../assets/images/tether-usdt-logo.svg" class="card-img-top w-50" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Valores actuales</h5>
-            <h6 class="card-subtitle mb-2 text-muted">BTC</h6>
-            <p class="card-text">{{valorActualInversionBtc | currency}}</p>
-            <h6 class="card-subtitle mb-2 text-muted">Total actual</h6>
-            <p class="card-text">{{totalActual | currency}}</p>
-          </div>
-        </div>
-      </div>
+
     </div>
   
   </div>
