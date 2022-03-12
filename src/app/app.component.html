@@ -67,8 +67,8 @@
     <!-- tabs content -->
     <div class="tab-content" id="myTabContent">
       <div class="tab-pane fade show active" id="inicial" role="tabpanel">
-        <div class="card border-dark text-center mt-3 h-100 w-75 ml-125">
-          <img src="../assets/images/cash1.svg" class="card-img-top w-50" alt="...">
+        <div class="card border-dark text-center mt-3 h-100 w-50 ml-20">
+          <img src="../assets/images/cash1.svg" class="card-img-top w-25" alt="...">
           <div class="card-body">
             <h5 class="card-title">Compra inicial</h5>
             <h6 class="card-subtitle mb-2 text-muted">Capital inicial</h6>
@@ -81,8 +81,8 @@
         </div>
       </div>
       <div class="tab-pane fade" id="inversiones" role="tabpanel">
-        <div class="row justify-content-center mt-3">
-          <div class="col-lg-6 col-md-6 col-sm-3 col-xs-3">
+        <div class="row mt-3 justify-content-center">
+          <div class="col-lg-6 col-md-6 col-sm-3 col-xs-3 justify-content-center">
             <div class="form-check">
               <input class="form-check-input" type="radio" value=1 [(ngModel)]="inversionSelected">
               <label class="form-check-label" for="gridRadios1">
@@ -97,9 +97,9 @@
             </div>
           </div>
         </div>
-        <div class="card-group mt-3">
-          <div class="card border-dark h-100 text-center" style="width: 25rem;" *ngIf="inversionSelected == 1">
-            <img src="../assets/images/Bitcoin.svg" class="card-img-top w-50" alt="...">
+        <div class="justify-content-center mt-2">
+          <div class="card border-dark text-center h-100 w-100" *ngIf="inversionSelected == 1">
+            <img src="../assets/images/Bitcoin.svg" class="card-img-top w-100 h-100" alt="...">
             <div class="card-body">
               <h5 class="card-title">BTC</h5>
               <h6 class="card-subtitle mb-2 text-muted">Inversion</h6>
@@ -110,7 +110,7 @@
               <p class="card-text">{{cantidadBTC | currency:'BTC':'symbol':'1.8-8'}}</p>
             </div>
           </div>
-          <div class="card h-100 border-dark text-center" style="width: 25rem;" *ngIf="inversionSelected == 2">
+          <div class="card border-dark text-center h-100 w-50 ml-20" *ngIf="inversionSelected == 2">
             <img src="../assets/images/anchor.png" class="card-img-top w-50" alt="...">
             <div class="card-body">
               <h5 class="card-title">Anchor protocol</h5>
@@ -123,7 +123,7 @@
         </div>
       </div>
       <div class="tab-pane fade" id="realTime" role="tabpanel">
-        <div class="card border-dark text-center mt-3 h-100" style="width: 25rem;">
+        <div class="card border-dark text-center mt-3 h-100 w-75 ml-9">
           <img src="../assets/images/tether-usdt-logo.svg" class="card-img-top w-50" alt="...">
           <div class="card-body">
             <h5 class="card-title">Valores actuales</h5>
