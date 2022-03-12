@@ -10,6 +10,7 @@ import { Observable, pluck } from 'rxjs';
 export class AppComponent implements OnInit {
   
   title = 'Inversiones de la familia';
+  inversionSelected = 1;
   capInicial = 9021000;
   usdComprados = 2407;
   precioPorDolar = 3748;
